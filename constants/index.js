@@ -19,28 +19,28 @@ const navLinks = [
 
 const cocktailLists = [
     {
-        name: "Chapel Hill Shiraz",
-        country: "AU",
-        detail: "Battle",
-        price: "$10",
+        name: "Classic Mojito",
+        country: "CU",
+        detail: "45 ml",
+        price: "$12",
     },
     {
-        name: "Caten Malbee",
-        country: "AU",
-        detail: "Battle",
-        price: "$49",
+        name: "Old Fashioned",
+        country: "US",
+        detail: "60 ml",
+        price: "$14",
     },
     {
-        name: "Rhino Pale Ale",
-        country: "CA",
-        detail: "750 ml",
-        price: "$20",
+        name: "Negroni",
+        country: "IT",
+        detail: "90 ml",
+        price: "$13",
     },
     {
-        name: "Irish Guinness",
-        country: "IE",
-        detail: "600 ml",
-        price: "$29",
+        name: "Espresso Martini",
+        country: "GB",
+        detail: "75 ml",
+        price: "$15",
     },
 ];
 
@@ -48,41 +48,26 @@ const mockTailLists = [
     {
         name: "Tropical Bloom",
         country: "US",
-        detail: "Battle",
+        detail: "250 ml",
         price: "$10",
     },
     {
         name: "Passionfruit Mint",
         country: "US",
-        detail: "Battle",
-        price: "$49",
+        detail: "250 ml",
+        price: "$11",
     },
     {
         name: "Citrus Glow",
         country: "CA",
-        detail: "750 ml",
-        price: "$20",
+        detail: "300 ml",
+        price: "$9",
     },
     {
         name: "Lavender Fizz",
         country: "IE",
-        detail: "600 ml",
-        price: "$29",
-    },
-];
-
-const profileLists = [
-    {
-        imgPath: "/images/profile1.png",
-    },
-    {
-        imgPath: "/images/profile2.png",
-    },
-    {
-        imgPath: "/images/profile3.png",
-    },
-    {
-        imgPath: "/images/profile4.png",
+        detail: "300 ml",
+        price: "$10",
     },
 ];
 
@@ -105,7 +90,7 @@ const storeInfo = {
     address: "456, Raq Blvd. #404, Los Angeles, CA 90210",
     contact: {
         phone: "(555) 987-6543",
-        email: "hello@jsmcocktail.com",
+        email: "hello@velvetpour.com",
     },
 };
 
@@ -141,31 +126,31 @@ const sliderLists = [
         image: "/images/drink1.png",
         title: "Simple Ingredients, Bold Flavor",
         description:
-            "Made with tequila, lime juice, and orange liqueur, the Margarita is easy to make and full of character. Add a salted rim for the perfect drink on summer nights.",
+            "White rum, fresh lime, mint and a splash of soda over crushed ice. Bright, herbaceous and endlessly refreshing — the benchmark every other highball is measured against.",
     },
     {
         id: 2,
         name: "Raspberry Mojito",
         image: "/images/drink2.png",
-        title: "A Zesty Classic That Never Fails",
+        title: "A Berry-Bright Twist on a Classic",
         description:
-            "The Margarita is a classic that balances tangy lime, smooth tequila, and a touch of sweetness. Shaken, frozen, or on the rocks—it’s always crisp & refreshing.",
+            "The classic mojito with muddled fresh raspberries. Tart berry sweetness meets cool mint and lime for a vivid, summer-in-a-glass twist.",
     },
     {
         id: 3,
         name: "Violet Breeze",
         image: "/images/drink3.png",
-        title: "Simple Ingredients, Bold Flavor",
+        title: "Floral, Delicate, Unforgettable",
         description:
-            "Made with tequila, lime juice, and orange liqueur, the Margarita is easy to make and full of character. Add a salted rim for the perfect drink on summer nights.",
+            "Gin, crème de violette and lemon finished with soda. Softly floral and delicately sweet, with a lavender hue that makes it as pretty as it is easy to sip.",
     },
     {
         id: 4,
         name: "Curacao Mojito",
         image: "/images/drink4.png",
-        title: "Crafted With Care, Poured With Love",
+        title: "A Splash of Color, a Burst of Citrus",
         description:
-            "Each cocktail is made with fresh ingredients and a passion for perfecting every pour, whether you're celebrating or simply relaxing.",
+            "Blue curaçao lifts the mojito with orange sweetness and an electric-blue glow. Citrusy, minty and made to stand out on any table.",
     },
 ];
 
@@ -173,7 +158,6 @@ export {
     navLinks,
     cocktailLists,
     mockTailLists,
-    profileLists,
     featureLists,
     goodLists,
     openingHours,
