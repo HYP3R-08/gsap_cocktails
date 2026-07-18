@@ -5,6 +5,8 @@ import {useGSAP} from "@gsap/react";
 
 const About = () => {
     useGSAP(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         const titleSplit = SplitText.create('#about h2', {
             type: 'words',
         })
@@ -22,7 +24,7 @@ const About = () => {
             })
             .from('.top-grid div, .bottom-grid div', {
                 opacity: 0, duration: 1, ease: 'power1.inOut', stagger: 0.04,
-            }, '-=0.5') // makes the animation start 0.5 seconde after the other one
+            }, '-=0.5') // overlap: start this tween 0.5s before the previous one ends
     })
 
     return (
@@ -55,28 +57,28 @@ const About = () => {
             <div className="top-grid">
                 <div className="md:col-span-3">
                     <div className="noisy" />
-                    <img src="/images/abt1.png" alt="grid-img-1" />
+                    <img src="/images/abt1.png" alt="Bartender preparing a cocktail" loading="lazy" decoding="async" />
                 </div>
 
                 <div className="md:col-span-6">
                     <div className="noisy" />
-                    <img src="/images/abt2.png" alt="grid-img-1" />
+                    <img src="/images/abt2.png" alt="Signature cocktails lined up on the bar" loading="lazy" decoding="async" />
                 </div>
 
                 <div className="md:col-span-3">
                     <div className="noisy" />
-                    <img src="/images/abt5.png" alt="grid-img-1" />
+                    <img src="/images/abt5.png" alt="Cocktail garnished with fresh fruit" loading="lazy" decoding="async" />
                 </div>
             </div>
 
             <div className="bottom-grid">
                 <div className="md:col-span-8">
                     <div className="noisy" />
-                    <img src="/images/abt3.png" alt="grid-img-1" />
+                    <img src="/images/abt3.png" alt="Interior of the cocktail bar" loading="lazy" decoding="async" />
                 </div>
                 <div className="md:col-span-4">
                     <div className="noisy" />
-                    <img src="/images/abt4.png" alt="grid-img-1" />
+                    <img src="/images/abt4.png" alt="Close-up of a freshly mixed drink" loading="lazy" decoding="async" />
                 </div>
             </div>
         </div>

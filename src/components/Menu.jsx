@@ -1,14 +1,14 @@
-'use client';
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {sliderLists} from "../../constants/index.js";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 
 const Menu = () => {
-    const contentRef = useRef();
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useGSAP(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         gsap.fromTo('#title', { opacity: 0 }, { opacity: 1, duration: 1 });
         gsap.fromTo('.cocktail img', { opacity: 0, xPercent: -100}, {
             xPercent: 0, opacity: 1, duration: 1, ease: 'power1.inOut'
@@ -62,22 +62,30 @@ const Menu = () => {
 
             <div className="content">
                 <div className="arrows">
-                    <button className="text-left" onClick={() => goToSlide(currentIndex - 1)}>
+                    <button
+                        className="text-left"
+                        aria-label={`Previous cocktail: ${prevCocktail.name}`}
+                        onClick={() => goToSlide(currentIndex - 1)}
+                    >
                         <span>{prevCocktail.name}</span>
-                        <img src="/images/right-arrow.png" alt="right-arrow" aria-hidden="true" />
+                        <img src="/images/left-arrow.png" alt="" aria-hidden="true" />
                     </button>
-                    <button className="text-left" onClick={() => goToSlide(currentIndex + 1)}>
+                    <button
+                        className="text-left"
+                        aria-label={`Next cocktail: ${nextCocktail.name}`}
+                        onClick={() => goToSlide(currentIndex + 1)}
+                    >
                         <span>{nextCocktail.name}</span>
-                        <img src="/images/left-arrow.png" alt="left-arrow" aria-hidden="true" />
+                        <img src="/images/right-arrow.png" alt="" aria-hidden="true" />
                     </button>
                 </div>
 
                 <div className="cocktail">
-                    <img src={currentCocktail.image} className="object-contain" alt="cocktail"/>
+                    <img src={currentCocktail.image} className="object-contain" alt={currentCocktail.name} loading="lazy" decoding="async"/>
                 </div>
 
                 <div className="recipe">
-                    <div ref={contentRef} className="info">
+                    <div className="info">
                         <p>Recipe for:</p>
                         <p id="title">{currentCocktail.name}</p>
                     </div>

@@ -1,12 +1,14 @@
 import React from 'react';
-import {openingHours, socials} from "../../constants/index.js";
+import {openingHours, socials, storeInfo} from "../../constants/index.js";
 import {useGSAP} from "@gsap/react";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
 
 const Contact = () => {
     useGSAP(() => {
-        const titleSplit = SplitText.create('#contact h2', { type: 'word' });
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const titleSplit = SplitText.create('#contact h2', { type: 'words' });
 
         const timeline = gsap.timeline({
             scrollTrigger: {
@@ -33,21 +35,21 @@ const Contact = () => {
 
     return (
         <footer id="contact">
-            <img src="/images/footer-right-leaf.png" alt="leaf-right" id="f-right-leaf" />
-            <img src="/images/footer-left-leaf.png" alt="leaf-left" id="f-left-leaf" />
+            <img src="/images/footer-right-leaf.png" alt="" aria-hidden="true" id="f-right-leaf" loading="lazy" />
+            <img src="/images/footer-left-leaf.png" alt="" aria-hidden="true" id="f-left-leaf" loading="lazy" />
 
             <div className="content">
-                <h2>Where to find us</h2>
+                <h2>{storeInfo.heading}</h2>
 
                 <div>
                     <h3>Visit Our Bar</h3>
-                    <p>456, Raq Blvd. #404, Los Angeles, CA 90210</p>
+                    <p>{storeInfo.address}</p>
                 </div>
 
                 <div>
                     <h3>Contact Us</h3>
-                    <p>(555) 987-6543</p>
-                    <p>hello@cocktail.com</p>
+                    <p>{storeInfo.contact.phone}</p>
+                    <p>{storeInfo.contact.email}</p>
                 </div>
 
                 <div>

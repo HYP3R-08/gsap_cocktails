@@ -5,6 +5,8 @@ import gsap from "gsap";
 
 const Cocktails = () => {
     useGSAP(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         const parallaxTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: '#cocktails',

@@ -9,6 +9,14 @@ const Art = () => {
     const isMobile = useMediaQuery({ maxWidth: 767 });
 
     useGSAP(() => {
+        // The mask reveal and #masked-content are hidden by CSS and only shown by the
+        // scroll animation, so with reduced motion we surface them statically instead.
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            gsap.set('.masked-img', { maskImage: 'none' });
+            gsap.set('#masked-content', { opacity: 1 });
+            return;
+        }
+
         const start = isMobile ? 'top 20%' : 'top top';
 
         const maskTimeline = gsap.timeline({
@@ -45,7 +53,9 @@ const Art = () => {
                     <div className="cocktail-img">
                         <img
                             src="/images/under-img.jpg"
-                            alt="cocktail"
+                            alt="Signature cocktail poured with care"
+                            loading="lazy"
+                            decoding="async"
                             className="abs-center masked-img size-full object-contain"/>
                     </div>
 

@@ -9,6 +9,8 @@ const Hero = () => {
 
     const isMobile = useMediaQuery({maxWidth: 767})
     useGSAP(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         const heroSplit = new SplitText('.title', { type: 'chars, words' });
         const paragraphSplit = new SplitText('.subtitle', { type: 'lines' });
 
@@ -54,10 +56,17 @@ const Hero = () => {
             }
         })
 
-        videoRef.current.onloadedmetadata = () => {
-            tl.to(videoRef.current, {
-                currentTime: videoRef.current.duration
-            })
+        const video = videoRef.current;
+        const attachVideoScrub = () => {
+            tl.to(video, { currentTime: video.duration });
+        };
+
+        // readyState >= 1 (HAVE_METADATA) means duration is already known, so the
+        // loadedmetadata event may have fired before this handler was attached.
+        if (video.readyState >= 1) {
+            attachVideoScrub();
+        } else {
+            video.onloadedmetadata = attachVideoScrub;
         }
     }, []);
     return (
